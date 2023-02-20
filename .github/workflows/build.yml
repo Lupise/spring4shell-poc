@@ -1,0 +1,14 @@
+name: Create and publish helloworld--back Docker image
+
+on:
+  push:
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-push-image:
+    uses: Lupise/reusable-workflows/.github/workflows/build-push-docker-image.yml@v1
+    secrets: inherit
